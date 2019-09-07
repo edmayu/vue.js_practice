@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue.js_sample</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        #value {
+            display: block;
+            margin-top: 5px;
+            width: 98%;
+            margin: 5px;
+            padding: 10px;
+            border: solid 1px #d8d9db;
+            border-radius: 5px;
+        }
+
+        .col-12 {
+            height: 300px;
+            margin: 50px 0 20px 0;
+            background-color: #ff9a9a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-12">
+        </div>
+        <div class="row">
+            <div class="col">
+                <form>
+                    <div class="form-group">
+                        <label for="customRange2">Red</label>
+                        <input type="range" class="custom-range" min="0" max="255" value="0" id="customRange2">
+
+                        <span id="value">0</span>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col">
+                <form>
+                    <div class="form-group">
+                        <label for="customRange2">Green</label>
+                        <input type="range" class="custom-range" min="0" max="255" value="0" id="customRange2">
+
+                        <span id="value">0</span>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <form>
+                    <div class="form-group">
+                        <label for="customRange2">Blue</label>
+                        <input type="range" class="custom-range" min="0" max="255" value="0" id="customRange2">
+
+                        <span id="value">0</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        var elem = document.getElementsByClassName('form-group');
+        var rangeValue = function (elem, target) {
+            return function (evt) {
+                target.innerHTML = elem.value;
+            }
+        }
+        for (var i = 0, max = elem.length; i < max; i++) {
+            bar = elem[i].getElementsByTagName('input')[0];
+            target = elem[i].getElementsByTagName('span')[0];
+            bar.addEventListener('input', rangeValue(bar, target));
+        }
+    </script>
+</body>
+
+</html>
